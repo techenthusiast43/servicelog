@@ -1,0 +1,359 @@
+{
+  "address": "0xcdB81839c408D06e13f46A10216b71DBE9b0D42d",
+  "chainId": 968,
+  "networkName": "botchainTestnet",
+  "deployedAt": "2026-11-09T00:20:22.153Z",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "CustomerCannotBeProvider",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "EmptyTitle",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidCustomerAddress",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidServiceId",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "enum ServiceLog.ServiceStatus",
+          "name": "currentStatus",
+          "type": "uint8"
+        },
+        {
+          "internalType": "enum ServiceLog.ServiceStatus",
+          "name": "targetStatus",
+          "type": "uint8"
+        }
+      ],
+      "name": "InvalidStatusTransition",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "serviceId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "ServiceAlreadyExists",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "serviceId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "ServiceNotFound",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "caller",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "expectedProvider",
+          "type": "address"
+        }
+      ],
+      "name": "UnauthorizedCaller",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "serviceId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "provider",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint48",
+          "name": "cancelledAt",
+          "type": "uint48"
+        }
+      ],
+      "name": "ServiceCancelled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "serviceId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "provider",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint48",
+          "name": "completedAt",
+          "type": "uint48"
+        }
+      ],
+      "name": "ServiceCompleted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "serviceId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "provider",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "customer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint48",
+          "name": "createdAt",
+          "type": "uint48"
+        }
+      ],
+      "name": "ServiceCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "serviceId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "cancelService",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "serviceId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "completeService",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "serviceId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "customer",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "description",
+          "type": "string"
+        }
+      ],
+      "name": "createService",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "offset",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "limit",
+          "type": "uint256"
+        }
+      ],
+      "name": "getAllServiceIds",
+      "outputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "ids",
+          "type": "bytes32[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "total",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "customer",
+          "type": "address"
+        }
+      ],
+      "name": "getCustomerServices",
+      "outputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "",
+          "type": "bytes32[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getMyServices",
+      "outputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "",
+          "type": "bytes32[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "serviceId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getService",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "provider",
+              "type": "address"
+            },
+            {
+              "internalType": "enum ServiceLog.ServiceStatus",
+              "name": "status",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "customer",
+              "type": "address"
+            },
+            {
+              "internalType": "uint48",
+              "name": "createdAt",
+              "type": "uint48"
+            },
+            {
+              "internalType": "uint48",
+              "name": "completedAt",
+              "type": "uint48"
+            },
+            {
+              "internalType": "string",
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "description",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct ServiceLog.ServiceRecord",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTotalServicesCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+}
